@@ -10,15 +10,9 @@ curr_directory = os.getcwd()
 input_path = os.path.join(curr_directory, "input")
 
 
-def lectura_contratos(contrato):
-    """
-    It takes a PDF file, converts it to a series of images, and saves them in a folder
-
-    :param output: The directory where you want to save the images
-    :param contrato: The path to the PDF file you want to convert
-    """
+def read_pdf(pdf):
     full_text = ''
-    pdf = os.path.join(input_path, contrato)
+    pdf = os.path.join(input_path, pdf)
     with tempfile.TemporaryDirectory() as path:
         images_from_path = convert_from_path(
             pdf, 350, output_folder=path)
@@ -28,5 +22,5 @@ def lectura_contratos(contrato):
     return full_text
 
 
-print(lectura_contratos("input.pdf"))
+print(read_pdf("input.pdf"))
 print("hello")
