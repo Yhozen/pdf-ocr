@@ -1,14 +1,13 @@
 import os
+import tempfile
 
 from tesserocr import image_to_text
 from pdf2image import convert_from_path
 from tqdm import tqdm
 
-import tempfile
-
-# Do something here
 
 curr_directory = os.getcwd()
+input_path = os.path.join(curr_directory, "input")
 
 
 def lectura_contratos(contrato):
@@ -19,10 +18,10 @@ def lectura_contratos(contrato):
     :param contrato: The path to the PDF file you want to convert
     """
     full_text = ''
-    pdfs = os.path.join(curr_directory, "input", contrato)
+    pdf = os.path.join(input_path, contrato)
     with tempfile.TemporaryDirectory() as path:
         images_from_path = convert_from_path(
-            pdfs, 350, output_folder=path)
+            pdf, 350, output_folder=path)
 
         for page in tqdm(images_from_path):
             full_text += image_to_text(page, lang='spa')
