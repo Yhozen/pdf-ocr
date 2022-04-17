@@ -19,7 +19,7 @@ git clone git@github.com:Yhozen/pdf-ocr.git
 cd pdf-ocr
 ```
 
-- make contract-ocr.sh executable
+- make `contract-ocr.sh` executable
 
 ```bash
 chmod +x contract-ocr.sh
