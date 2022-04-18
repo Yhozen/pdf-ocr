@@ -1,4 +1,8 @@
 #!/bin/bash
+###############   Arguments   ###################
+INPUT="$1"
+
+############# ------------------ ################
 
 ###############   Parameters  ###################
 IMAGE_NAME=contract-ocr
@@ -26,6 +30,6 @@ fi
 ############# ------------------ ################
 
 ################  Run image  ####################
-CONTRACT_PATH=$(realpath $1);
+CONTRACT_PATH=$(realpath "$INPUT");
 docker run -v "$CONTRACT_PATH:/opt/build/input/input.pdf" $IMAGE_NAME
 ############# ------------------ ################
